@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.stats import norm, shapiro, kstest
+from QuestionSevenB import test_normality
 
 # Fetch daily price data for Apple (AAPL) and Tesla (TSLA) for the past year
 start_date = "2023-12-01"
@@ -17,6 +18,9 @@ tsla_data['Daily Return'] = tsla_data['Adj Close'] - tsla_data['Adj Close'].shif
 # Drop NaN values created by the shift operation
 aapl_returns = aapl_data['Daily Return'].dropna()
 tsla_returns = tsla_data['Daily Return'].dropna()
+
+print(len(aapl_returns))
+print(len(tsla_returns))
 
 # Summarize results
 print("Summary of Apple Returns:")
@@ -39,6 +43,8 @@ for returns, label in zip([aapl_returns, tsla_returns], ['Apple', 'Tesla']):
     plt.legend()
     plt.grid(alpha=0.5)
     plt.show()
+
+    test_normality(returns, label, mean, std)
 
 # Perform Shapiro-Wilk Test for normality
 print("Shapiro-Wilk Test Results for Normality:")
