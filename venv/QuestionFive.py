@@ -26,7 +26,7 @@ print(sample_mean, sample_std, confidence_interval)
 
 # Plot the updated histogram of Y
 plt.figure(figsize=(8, 6))
-plt.hist(Y, bins=15, density=True, edgecolor="black", alpha=0.7, color="orange")
+plt.hist(Y, bins=15, density=True, edgecolor="black", alpha=0.7)
 plt.title("Probability Histogram of Y")
 plt.xlabel("Values of Y")
 plt.ylabel("Probability Density")
