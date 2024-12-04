@@ -45,10 +45,3 @@ for returns, label in zip([aapl_returns, tsla_returns], ['Apple', 'Tesla']):
     plt.show()
 
     test_normality(returns, label, mean, std)
-
-# Perform Shapiro-Wilk Test for normality
-print("Shapiro-Wilk Test Results for Normality:")
-apple_shapiro = shapiro(aapl_returns)
-tesla_shapiro = shapiro(tsla_returns)
-print(f"Apple: Statistic={apple_shapiro.statistic}, p-value={apple_shapiro.pvalue}")
-print(f"Tesla: Statistic={tesla_shapiro.statistic}, p-value={tesla_shapiro.pvalue}")
