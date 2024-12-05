@@ -4,6 +4,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.stats import norm, shapiro, kstest
 from QuestionSevenB import test_normality
+from QuestionSevenB import test_independency
+
 
 # Fetch daily price data for Apple (AAPL) and Tesla (TSLA) for the past year
 start_date = "2023-12-01"
@@ -45,3 +47,5 @@ for returns, label in zip([aapl_returns, tsla_returns], ['Apple', 'Tesla']):
     plt.show()
 
     test_normality(returns, label, mean, std)
+
+test_independency(aapl_returns, tsla_returns)
